@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>App raíz quadrada</title>
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#ff0000">
+    <style>
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+    justify-content: center;
+    text-align: center;
+}
+h1{
+    transform: translateY(15px);
+}
+input{
+    margin-top: 40px;
+    padding: 12px;
+    border-radius: 60px;
+}
+input:focus {
+    outline: none; 
+    box-shadow: none; 
+    border-color: #000; 
+}
+button{
+    margin-top: 25px;
+    margin-left: 10px;
+    margin-right: 10px;
+    border-radius: 60px;
+    padding: 12px;
+    
+}
+#extract:hover{
+    background-color: black;
+}
+#extract{
+    color: white;
+    background-color: rgb(50, 180, 50);
+}
+
+#clean{
+    color: white;
+    background-color: red;
+}
+#clean:hover{
+    background-color: black;
+}
+p{
+    margin-top: 25px;
+}
+#share{
+    color: white;
+    background-color: rgb(58, 180, 236);
+}
+
+#share:hover{
+    background-color: #000;
+}
+body{
+    height: 100vh;
+    margin: 0;
+    background: linear-gradient(135deg, #dbdbdb, #ecddc1, #eed890, #dfd1a5);
+ 
+}
+    </style>
+</head>
+<body>
+<h1>Digite um número para obter a raíz quadrada: </h1>
+<input type="number" id="input">
+<div>
+    <button id="extract">EXTRAIR RAÍZ</button>
+    <button id="clean">LIMPAR</button>
+</div>
+<p id="result"></p>
+<button id="share">COMPARTILHAR</button>
+
+<script>
+      
+    const extrair= document.getElementById("extract");
+    const limpar= document.getElementById("clean");
+    const resultado= document.getElementById("result");
+    const compartilhar= document.getElementById("share");
+    
+    
+    extrair.addEventListener("click",function(){
+        let valor= document.getElementById("input").value;
+        if(valor==""){
+            resultado.innerHTML="Digite um número válido!"
+        }else{
+            let raiz= Math.sqrt(Number(valor))
+            resultado.innerHTML="O valor da raíz de "+valor+" é: "+raiz+"!"
+        }
+    })
+
+    limpar.addEventListener("click",function(){
+        input.value="";
+        resultado.innerHTML=""
+    })
+
+    compartilhar.addEventListener("click",function(){
+        let valor= document.getElementById("input").value;
+         let raiz= Math.sqrt(Number(valor))
+        if(raiz=="" || valor==""){
+            resultado.innerHTML="Extraia uma raíz para compartilhar!"
+        }
+    })
+        
+    if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.register('./service-worker.js')
+            .then(() => console.log('Service Worker registrado!'))
+            .catch(() => console.log('Falha ao registrar Service Worker'));
+        } 
+    </script>
+</body>
+</html>
