@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>POKEDEX!!</title>
     <link  rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -11,17 +11,20 @@
     <input type="text" id="pokemonName" placeholder="Enter Pokémon Name:">
     <button  onclick="fetchData()" id="FETCH">Fetch Pokémon</button><br>
 </div>
-    <div class="card" id="card" style="display: none;">
-<div class="sprites">
+   
+<div class="card" id="card" style="display: none;">
+
+  <div class="sprite-area">
     <img src="" alt="Pokémon Sprite" id="pokemonSprite" style="display: none;" width="300px" >
+  </div>
+
+  <p id="type"></p>
+  <p id="ability"></p>
+  <p id="moves"></p>
 </div>
 
-<div class="info">
-    <p id="type"></p>
-    <p id="ability"></p>
-    <p id="moves"></p>
-</div>
-</div>
+
+
     <script src="script.js"></script>
 </body>
 </html>
