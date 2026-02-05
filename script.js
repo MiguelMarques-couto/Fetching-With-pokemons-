@@ -9,7 +9,7 @@ async function fetchData() {
 
         const data = await response.json();
         const imgElement = document.getElementById("pokemonSprite");
-        imgElement.src = data.sprites.front_default;
+        imgElement.src = data.sprites.versions["generation-v"]["black-white"].animated.front_default;
         card.style.display="block";
         imgElement.style.display = "block";
 
